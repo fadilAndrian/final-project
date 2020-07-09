@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateUsersTable extends Migration
+class CreateQCommentsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,14 +13,14 @@ class CreateUsersTable extends Migration
      */
     public function up()
     {
-        Schema::create('users', function (Blueprint $table) {
+        Schema::create('q-comments', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('username');
-            $table->string('email');
-            $table->string('password');
+            $table->string('isi');
 
-            $table->unsignedBigInteger('reputation_id');
-            $table->foreign('reputation_id')->references('id')->on('reputations');
+            $table->unsignedBigInteger('user_id');
+            $table->foreign('user_id')->references('id')->on('users');
+            $table->unsignedBigInteger('question_id');
+            $table->foreign('question_id')->references('id')->on('questions');
             $table->timestamps();
         });
     }
@@ -32,6 +32,6 @@ class CreateUsersTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('users');
+        Schema::dropIfExists('a-comments');
     }
 }

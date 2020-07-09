@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateUsersTable extends Migration
+class CreateAUpvotesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,14 @@ class CreateUsersTable extends Migration
      */
     public function up()
     {
-        Schema::create('users', function (Blueprint $table) {
+        Schema::create('a-upvotes', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('username');
-            $table->string('email');
-            $table->string('password');
+            $table->integer('poin');
 
+            $table->unsignedBigInteger('user_id');
+            $table->foreign('user_id')->references('id')->on('users');
+            $table->unsignedBigInteger('answer_id');
+            $table->foreign('answer_id')->references('id')->on('answers');
             $table->unsignedBigInteger('reputation_id');
             $table->foreign('reputation_id')->references('id')->on('reputations');
             $table->timestamps();
@@ -32,6 +34,6 @@ class CreateUsersTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('users');
+        Schema::dropIfExists('a-upvotes');
     }
 }
