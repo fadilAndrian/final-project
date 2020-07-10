@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-
+<div class="container">
 <div class="wrapper">
   @include('layouts.sidebar')
   <!-- Content Wrapper. Contains page content -->
@@ -16,27 +16,39 @@
             <!-- Default box -->
             <div class="card">
               <div class="card-header">
-                <div class="row mb-1">
-                  <div class="col-sm-10">
-                    <h3 class="card-title">List Pertanyaan</h3>            
+                <div class="row mb-4">
+                  <div class="col-sm-6 my-auto">
+                    <h3>List Pertanyaan</h3>            
                   </div>
-                  <div class="col-sm-2">
+                  <div class="col-sm-6 d-flex flex-row-reverse">
                     <a href="/pertanyaan/create" class="btn btn-primary">
                       Buat Pertanyaan
                     </a>
                   </div>                  
                 </div>
+                <div class="row">
+                  <div class="col-sm-9 my-auto">
+                    <h3 class="card-title">0 questions</h3>            
+                  </div>
+                  <div class="btn-group col-sm-3 ">
+                    <button type="button" class="btn btn-default">Newest</button>
+                    <button type="button" class="btn btn-default">Votes</button>
+                  </div>
+                </div>
               </div>   
               <!-- foreach -->
               <div class="card-body d-flex">
-                <div class="col-1">
-                  <h1>0</h1>
-                  <div class="row">                    
-                    <p>vote</p>
+                <div class="col-1 my-auto">
+                  <h4 class="mx-auto">0</h4>
+                  <div class="row mx-auto">                    
+                    <p style="font-size: 12px;">vote</p>
                   </div>
-                  <h1>0</h1>
-                  <div class="row">                    
-                    <p>answer</p>
+                  <h4>0</h4>
+                  <div class="row mx-auto">                    
+                    <p style="font-size: 12px;">answer</p>
+                  </div>
+                  <div class="row mx-auto">                    
+                    <p style="font-size: 12px;">0 views</p>
                   </div>
                 </div>                
                 <div class="col-11">
@@ -47,14 +59,27 @@
                   consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
                   cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
                   proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                  <div class="row">
+                    <div class="col-9">
+                      <a href="#" class="btn btn-light mx-1" style="font-size: 14px;">tag</a>
+                      <a href="#" class="btn btn-light mx-1" style="font-size: 14px;">tag2</a>
+                      <a href="#" class="btn btn-light mx-1" style="font-size: 14px;">tag3</a>
+                    </div>
+                    <div class="col-3">
+                      <div class="row mb-1">
+                        <p style="font-size: 14px;">asked at 10/07/2020 07:15</p>
+                      </div>
+                      <div class="row">
+                        <a href="#" style="font-size: 14px;">nama pengguna</a>
+                      </div>                      
+                    </div>
+                  </div>
                 </div>
                 
               </div>
               <!-- endforeach -->
               <!-- /.card-body -->
-              <div class="card-footer">
-                Sanbercode Grup 66
-              </div>
+              
               <!-- /.card-footer-->
             </div>
             <!-- /.card -->
@@ -65,5 +90,6 @@
     <!-- /.content -->
   </div>
   <!-- /.content-wrapper --> 
+</div>
 </div>
 @endsection
