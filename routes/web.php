@@ -18,7 +18,7 @@ Route::get('/', function () {
 });
 
 
-Route::get('/pertanyaan','PertanyaanController@index');
+Route::get('/dashboard','questionController@index');
 
 Auth::routes();
 

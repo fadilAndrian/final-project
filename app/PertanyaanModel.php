@@ -4,7 +4,7 @@
 
 	class PertanyaanModel{
 		public static function get_all(){
-			$pertanyaan = DB::table('pertanyaan')->get();
+			$pertanyaan = DB::table('questions')->get();
 			return $pertanyaan;
 		}
 
