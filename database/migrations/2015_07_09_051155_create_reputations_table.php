@@ -16,6 +16,8 @@ class CreateReputationsTable extends Migration
         Schema::create('reputations', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->integer('poin');
+            $table->unsignedBigInteger('user_id');    
+            $table->foreign('user_id')->references('id')->on('users');
         });
     }
 
