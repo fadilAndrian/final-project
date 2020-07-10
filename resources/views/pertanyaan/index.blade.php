@@ -1,52 +1,69 @@
-@extends('layout.app')
+@extends('layouts.app')
 
 @section('content')
-<div class="ml-3 mt-3">
-<div class="card-header">
-                <h3 class="card-title">List Pertanyaan</h3>
-              </div>
-              <!-- /.card-header -->
-              <div class="card-body">
-<table class="table table-bordered">
-                  <thead>                  
-                    <tr>
-                      <th style="width: 10px">#</th>
-                      <th>Judul</th>
-                      <th>Isi</th>
-                      <th style="width: 40px">Tanggal</th>
-                      <th style="width: 40px">Update</th>
-                      <th>Action</th>
-                      <th>Jawaban</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                  @foreach($pertanyaan as $key => $pertanyaan)
-                  <tr>
-                    <td>{{$key+1}}</td>
-                    <td>{{$pertanyaan->judul}}</td>
-                    <td>{{$pertanyaan->isi}}</td>
-                    <td>{{$pertanyaan->tanggal_dibuat}}</td>
-                    <td>{{$pertanyaan->tanggal_diperbaharui}}</td>
-                    <td>
-                    <a href="/pertanyaan/{{$pertanyaan->id}}" class= "btn btn-sm btn-info"> Show </a>
-                    <a href="/pertanyaan/{{$pertanyaan->id}}/edit" class= "btn btn-sm btn-default"> Edit </a> 
-                    <form action="/pertanyaan/{{$pertanyaan->id}}" method="POST" style="display: inline;">
-                    @csrf
-                    @method('DELETE')
-                    <button type="submit" class="btn btn-sm btn-danger"> Delete</button>
-                    </td>
-                    <td>
-                      <a href="/jawaban/jawab1"> jawab </a>
-                    </td>
-                  </tr>
-                  @endforeach
-                    
-                    
-                  </tbody>
-                </table>
+
+<div class="wrapper">
+  @include('layouts.sidebar')
+  <!-- Content Wrapper. Contains page content -->
+  <div class="content-wrapper">
+    
+
+    <!-- Main content -->
+    <section class="">
+      <div class="">
+        <div class="row">
+          <div class="col-12">
+            <!-- Default box -->
+            <div class="card">
+              <div class="card-header">
+                <div class="row mb-1">
+                  <div class="col-sm-10">
+                    <h3 class="card-title">List Pertanyaan</h3>            
+                  </div>
+                  <div class="col-sm-2">
+                    <a href="/pertanyaan/create" class="btn btn-primary">
+                      Buat Pertanyaan
+                    </a>
+                  </div>                  
                 </div>
-<a href="/pertanyaan/create" class="btn btn-primary">
-Buat Pertanyaan
-</a>
+              </div>   
+              <!-- foreach -->
+              <div class="card-body d-flex">
+                <div class="col-1">
+                  <h1>0</h1>
+                  <div class="row">                    
+                    <p>vote</p>
+                  </div>
+                  <h1>0</h1>
+                  <div class="row">                    
+                    <p>answer</p>
+                  </div>
+                </div>                
+                <div class="col-11">
+                  <h3><a href="">judul</a></h3>
+                  <p>isi Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                  tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+                  quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+                  consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+                  cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+                  proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                </div>
+                
+              </div>
+              <!-- endforeach -->
+              <!-- /.card-body -->
+              <div class="card-footer">
+                Sanbercode Grup 66
+              </div>
+              <!-- /.card-footer-->
+            </div>
+            <!-- /.card -->
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- /.content -->
+  </div>
+  <!-- /.content-wrapper --> 
 </div>
 @endsection
