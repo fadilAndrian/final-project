@@ -11,14 +11,14 @@
                   <hr class="my-4">
                   <p>Selamat bergabung.</p>
                 </div>
-                <!--<div class="card-body">
+                <div class="card-body">
                     @if (session('status'))
                         <div class="alert alert-success" role="alert">
                             {{ session('status') }}
                         </div>
                     @endif
 
-                </div>-->
+                </div>
 
         </div>
     </div>

@@ -18,9 +18,8 @@ Route::get('/', function () {
 });
 
 
-
+Route::get('/dashboard','questionController@index');
 
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
-Route::get('/pertanyaan','PertanyaanController@index');
