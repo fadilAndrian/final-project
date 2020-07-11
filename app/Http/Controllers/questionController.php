@@ -9,23 +9,24 @@ class questionController extends Controller
 {
     public function index(){
         $pertanyaan = Question::all();
-        return view('pertanyaan.index', compact('questions'));
+        return view('pertanyaan.index', compact('pertanyaan'));
+    }
+    public function create(){
+        return view('pertanyaan.form');
     }
  
     public function store(request $request){
-    	$pertanyaan = Question::create([
-    		'judul'->$request['judul'],
-    		'isi'->$request['isi'],
-    		'tag'->$request['tag'],
-    		'create_time'->$request['create_time'],
-    		'update_time'->$request['update_time'],
-    		'user_id'->$request['user_id'],
-    	]);
+    	$new_pertanyaan = new question;
+        $new_pertanyaan ->judul = $request->judul;
+        $new_pertanyaan ->isi = $request->isi;
+        $new_pertanyaan ->tag = $request->tag;
+        //$new_pertanyaan ->create_time = $request->create_time;
+        //$new_pertanyaan ->update_time = $request->update_time;
 
-        return redirect('');
+       $new_pertanyaan->save();
+       return redirect('/dash');
     }
+    
 
-    public function create(){        
-        return view('');
-    }
+    
 }

@@ -19,7 +19,8 @@ Route::get('/', function () {
 
 
 Route::get('/dashboard','questionController@index');
-
+Route::get('/pertanyaan/create','questionController@create');//tampil form
+Route::post('/pertanyaan','questionController@store');//simpen data
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
