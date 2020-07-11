@@ -1,9 +1,9 @@
-@extends('layout.app')
+@extends('layouts.app')
 
 @section('content')
 <div class="ml-3 mt-3">
 <div class="card-header">
-                <h3 class="card-title">List Pertanyaan</h3>
+                <h3 class="card-title">Page Pertanyaan</h3>
               </div>
               <!-- /.card-header -->
               <div class="card-body">
