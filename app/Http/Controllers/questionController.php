@@ -9,7 +9,7 @@ class questionController extends Controller
 {
     public function index(){
         $pertanyaan = Question::all();
-        return view('pertanyaan.index', compact('questions'));
+        return view('pertanyaan.index', compact('pertanyaan'));
     }
  
     public function store(request $request){
