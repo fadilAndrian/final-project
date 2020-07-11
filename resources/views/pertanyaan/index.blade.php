@@ -36,7 +36,7 @@
                   </div>
                 </div>
               </div>   
-              <!-- foreach -->
+              @foreach($pertanyaan as $key => $pertanyaan)
               <div class="card-body d-flex">
                 <div class="col-1 my-auto">
                   <h4 class="mx-auto">0</h4>
@@ -52,32 +52,24 @@
                   </div>
                 </div>                
                 <div class="col-11">
-                  <h3><a href="">judul</a></h3>
-                  <p>isi Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                  tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-                  quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-                  consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-                  cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-                  proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                  <h3><a href="">{{ $pertanyaan->judul }}</a></h3>
+                  <p>{{ $pertanyaan->isi }}</p>
                   <div class="row">
                     <div class="col-9">
-                      <a href="#" class="btn btn-light mx-1" style="font-size: 14px;">tag</a>
-                      <a href="#" class="btn btn-light mx-1" style="font-size: 14px;">tag2</a>
-                      <a href="#" class="btn btn-light mx-1" style="font-size: 14px;">tag3</a>
+                      <a href="#" class="btn btn-light mx-1" style="font-size: 14px;">{{ $pertanyaan->tag }}</a>
                     </div>
                     <div class="col-3">
                       <div class="row mb-1">
-                        <p style="font-size: 14px;">asked at 10/07/2020 07:15</p>
+                        <p style="font-size: 14px;">asked at {{ $pertanyaan->created_at }}</p>
                       </div>
                       <div class="row">
-                        <a href="#" style="font-size: 14px;">nama pengguna</a>
+                        <a href="#" style="font-size: 14px;">{{ $pertanyaan->user->name }}</a>
                       </div>                      
                     </div>
                   </div>
-                </div>
-                
+                </div>            
               </div>
-              <!-- endforeach -->
+              @endforeach
               <!-- /.card-body -->
               
               <!-- /.card-footer-->

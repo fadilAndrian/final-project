@@ -11,22 +11,21 @@ class questionController extends Controller
         $pertanyaan = Question::all();
         return view('pertanyaan.index', compact('pertanyaan'));
     }
-    public function create(){
-        return view('pertanyaan.form');
-    }
  
     public function store(request $request){
-    	$new_pertanyaan = new question;
-        $new_pertanyaan ->judul = $request->judul;
-        $new_pertanyaan ->isi = $request->isi;
-        $new_pertanyaan ->tag = $request->tag;
-        //$new_pertanyaan ->create_time = $request->create_time;
-        //$new_pertanyaan ->update_time = $request->update_time;
+    	$pertanyaan = Question::create([
+    		'judul'->$request['judul'],
+    		'isi'->$request['isi'],
+    		'tag'->$request['tag'],
+    		'create_time'->$request['create_time'],
+    		'update_time'->$request['update_time'],
+    		'user_id'->$request['user_id'],
+    	]);
 
-       $new_pertanyaan->save();
-       return redirect('/dash');
+        return redirect('');
     }
-    
 
-    
+    public function create(){        
+        return view('');
+    }
 }
