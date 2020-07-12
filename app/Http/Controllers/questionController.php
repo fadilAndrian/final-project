@@ -26,6 +26,12 @@ class questionController extends Controller
     }
 
     public function create(){        
-        return view('');
+        return view('/pertanyaan/form');
     }
+
+    public function show($id){
+        $tanya = $pertanyaan->find($id);
+        return view('jawaban.index', compact($tanya));
+    }
+
 }

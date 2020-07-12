@@ -13,14 +13,17 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
+/*Route::get('/', function () {
     return view('welcome');
+});*/
+
+Route::group(['middleware' => 'auth'], function(){
+	Route::get('/pertanyaan/create','questionController@create');//tampil form
+	Route::post('/pertanyaan/create','questionController@store');//simpen data
+	Route::post('pertanyaan', 'answerController@store');//simpen jawaban
 });
-
-
-Route::get('/dashboard','questionController@index');
-Route::get('/pertanyaan/create','questionController@create');//tampil form
-Route::post('/pertanyaan','questionController@store');//simpen data
+Route::get('/','questionController@index');
+Route::get('/pertanyaan', ['answerController@index','questionController@show']);//tampil pertanyaan, jawaban, dan form menjawab
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');

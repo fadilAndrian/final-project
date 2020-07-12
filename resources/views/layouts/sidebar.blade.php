@@ -6,7 +6,7 @@
       <nav class="mt-2">
       	<ul class="nav nav-pills nav-sidebar flex-column">                 
           <li class="nav-item">
-            <a href="../../index.html" class="nav-link">
+            <a href="/" class="nav-link">
               <i class="far fa-circle nav-icon"></i>
               <p>Public</p>
             </a>
