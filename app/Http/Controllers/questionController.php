@@ -12,17 +12,17 @@ class questionController extends Controller
         return view('pertanyaan.index', compact('pertanyaan'));
     }
  
-    public function store(request $request){
+    public function store(request $request, post $post){
     	$pertanyaan = Question::create([
-    		'judul'->$request['judul'],
-    		'isi'->$request['isi'],
-    		'tag'->$request['tag'],
-    		'create_time'->$request['create_time'],
-    		'update_time'->$request['update_time'],
-    		'user_id'->$request['user_id'],
+    		'judul'=>$request['judul'],
+    		'isi'=>$request['isi'],
+    		'tag'=>$request['tag'],
+    		'created_at'=>$request['created_at'],
+    		'updated_at'=>$request['updated_at'],
+    		'user_id'=>auth()->id()
     	]);
 
-        return redirect('');
+        return redirect('/pertanyaan');
     }
 
     public function create(){        
@@ -30,8 +30,8 @@ class questionController extends Controller
     }
 
     public function show($id){
-        $tanya = $pertanyaan->find($id);
-        return view('jawaban.index', compact($tanya));
+        $pertanyaan = Question::find($id);
+        return view('jawaban.index', compact('pertanyaan'));
     }
 
 }

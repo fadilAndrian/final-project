@@ -13,7 +13,7 @@
               </div>
               <!-- /.card-header -->
               <!-- form start -->
-              <form role="form" action="/dashboard" method="POST">
+              <form role="form" action="/pertanyaan/store" method="POST">
               @csrf
                 <div class="card-body">
                  <div class="form-group">

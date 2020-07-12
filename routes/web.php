@@ -19,11 +19,12 @@ use Illuminate\Support\Facades\Route;
 
 Route::group(['middleware' => 'auth'], function(){
 	Route::get('/pertanyaan/create','questionController@create');//tampil form
-	Route::post('/pertanyaan/create','questionController@store');//simpen data
-	Route::post('pertanyaan', 'answerController@store');//simpen jawaban
+	Route::get('/pertanyaan/store','questionController@store');//simpen data
+	Route::post('/pertanyaan', 'answerController@store');//simpen jawaban
 });
 Route::get('/','questionController@index');
-Route::get('/pertanyaan', ['answerController@index','questionController@show']);//tampil pertanyaan, jawaban, dan form menjawab
+//Route::get('/pertanyaan/{id}', 'answerController@index');//tampil pertanyaan, jawaban, dan form menjawab
+Route::get('/pertanyaan/{id}', 'questionController@show');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');

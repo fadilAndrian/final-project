@@ -14,4 +14,9 @@ class Question extends Model
     public function user(){
     	return $this->belongsTo('App\User');
     }
+
+    public function find_by_id($id){
+    	$question = DB::table('questions')->where('id', $id)->first();
+    	return $question;
+    }
 }

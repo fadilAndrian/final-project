@@ -52,7 +52,7 @@
                   </div>
                 </div>                
                 <div class="col-11">
-                  <h3><a href="">{{ $pertanyaan->judul }}</a></h3>
+                  <h3><a href="/pertanyaan/{{ $pertanyaan->id }}">{{ $pertanyaan->judul }}</a></h3>
                   <p>{{ $pertanyaan->isi }}</p>
                   <div class="row">
                     <div class="col-9">
